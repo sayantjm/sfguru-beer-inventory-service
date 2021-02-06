@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
-import sayant.springframeworkguru.common.events.NewInventoryEvent;
+import sayant.springframeworkguru.brewery.model.events.NewInventoryEvent;
 import sayant.springframeworkguru.sfgurubeerinventoryservice.config.JmsConfig;
 import sayant.springframeworkguru.sfgurubeerinventoryservice.domain.BeerInventory;
 import sayant.springframeworkguru.sfgurubeerinventoryservice.repository.BeerInventoryRepository;

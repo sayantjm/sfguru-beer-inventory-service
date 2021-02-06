@@ -1,4 +1,4 @@
-package sayant.springframeworkguru.common.events;
+package sayant.springframeworkguru.brewery.model.events;
 
 /**
  * Created by sayantjm on 17/5/20
