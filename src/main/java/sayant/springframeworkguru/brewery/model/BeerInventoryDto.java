@@ -1,4 +1,4 @@
-package sayant.springframeworkguru.sfgurubeerinventoryservice.model;
+package sayant.springframeworkguru.brewery.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

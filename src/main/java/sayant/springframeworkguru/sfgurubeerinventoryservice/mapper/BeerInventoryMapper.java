@@ -2,7 +2,7 @@ package sayant.springframeworkguru.sfgurubeerinventoryservice.mapper;
 
 import org.mapstruct.Mapper;
 import sayant.springframeworkguru.sfgurubeerinventoryservice.domain.BeerInventory;
-import sayant.springframeworkguru.sfgurubeerinventoryservice.model.BeerInventoryDto;
+import sayant.springframeworkguru.brewery.model.BeerInventoryDto;
 
 /**
  * Created by sayantjm on 1/7/20

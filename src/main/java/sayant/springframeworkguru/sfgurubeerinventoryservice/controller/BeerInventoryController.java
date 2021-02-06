@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import sayant.springframeworkguru.sfgurubeerinventoryservice.mapper.BeerInventoryMapper;
-import sayant.springframeworkguru.sfgurubeerinventoryservice.model.BeerInventoryDto;
+import sayant.springframeworkguru.brewery.model.BeerInventoryDto;
 import sayant.springframeworkguru.sfgurubeerinventoryservice.repository.BeerInventoryRepository;
 
 import java.util.List;
