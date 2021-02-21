@@ -32,11 +32,11 @@ public class AllocationListenerImpl {
             } else {
                 builder.pendingInventory(true);
             }
+            builder.allocationError(false);
         } catch (Exception e) {
             log.error("Allocation failed for OrderId:{}", request.getBeerOrderDto().getId());
             builder.allocationError(true);
         }
-
 
 
         jmsTemplate.convertAndSend(JmsConfig.ALLOCATE_ORDER_RESPONSE_QUEUE, builder.build());
