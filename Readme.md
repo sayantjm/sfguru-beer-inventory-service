@@ -2,3 +2,6 @@
 
 # Beer Inventory Service
 It is running on port 8082
+
+## Parameters for using mySQL and Eureka
+-Dspring.profiles.active=localmysql,local-discovery
