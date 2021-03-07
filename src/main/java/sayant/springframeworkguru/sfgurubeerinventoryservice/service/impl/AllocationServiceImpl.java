@@ -58,6 +58,7 @@ public class AllocationServiceImpl implements AllocationService {
     }
 
     private void allocateBeerOrderLine(BeerOrderLineDto beerOrderLine) {
+        log.debug("Allocate Beer Order Line:{}, quantity:{}", beerOrderLine.getBeerId(), beerOrderLine.getOrderQuantity());
         List<BeerInventory> beerInventoryList = beerInventoryRepository.findAllByUpc(beerOrderLine.getUpc());
 
         beerInventoryList.forEach(beerInventory -> {
@@ -65,14 +66,17 @@ public class AllocationServiceImpl implements AllocationService {
             int orderQty = (beerOrderLine.getOrderQuantity() == null) ? 0: beerOrderLine.getOrderQuantity();
             int allocatedQty = (beerOrderLine.getQuantityAllocated() == null) ? 0: beerOrderLine.getQuantityAllocated();
             int qtyToAllocate = orderQty - allocatedQty;
+            log.debug("Inventory ({}) Information: inventoryQty={}, orderQty={}, allocatedQty={}", beerInventory.getBeerId(), inventory, orderQty, allocatedQty);
 
             if (inventory >= qtyToAllocate) {  // Full allocation
                 inventory = inventory - qtyToAllocate;
                 beerOrderLine.setQuantityAllocated(orderQty);
                 beerInventory.setQuantityOnHand(inventory);
+                log.debug("Full allocation of inventory:{}, quantityOnHand={}", beerInventory.getBeerId(), beerInventory.getQuantityOnHand());
                 beerInventoryRepository.save(beerInventory);
             } else if(inventory > 0) { // partial allocation
                 beerOrderLine.setQuantityAllocated(allocatedQty + inventory);
+                log.debug("Partical allocation of inventory:{}, quantityOnHand={}", beerInventory.getBeerId(), beerInventory.getQuantityOnHand());
                 beerInventory.setQuantityOnHand(0);
             }
 
